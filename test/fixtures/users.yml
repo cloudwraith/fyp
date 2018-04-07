@@ -15,6 +15,9 @@ cloud:
   age: 22
   password_digest: <%= User.digest('password') %>
   admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
 
 
 arslan:
@@ -22,3 +25,6 @@ arslan:
   email: arslan@example.gov
   age: 21
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+

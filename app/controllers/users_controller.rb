@@ -17,9 +17,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       # Handle a successful save.
-      log_in @user
-      flash[:success] = "Welcome to PAGE!"
-      redirect_to @user     #Could have used redirect_to user_url(@user)
+      # log_in @user
+      # flash[:success] = "Welcome to PAGE!"
+      # redirect_to @user     #Could have used redirect_to user_url(@user)
+      @user.send_activation_email
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
     else
       render 'new'
     end
